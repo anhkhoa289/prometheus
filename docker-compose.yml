@@ -1,0 +1,14 @@
+version: '3'
+services:
+  prometheus:
+    build: ./prometheus
+    volumes:
+      - ./prometheus/data:/app/prometheus/data
+      - ./prometheus/prometheus.yml:/app/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+
+  node_exporter:
+    build: ./node_exporter
+    ports:
+      - 9100:9100
